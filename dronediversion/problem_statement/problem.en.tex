@@ -19,10 +19,12 @@ After a drone reaches its final position, it is will stay there for at least the
 Write a program that, given the starting point and destination of two drones, determines whether they will crash no matter what shortest path they take, and whether they will never crash no matter what shortest path they take.
 
 \section*{Input}
-The first line contains the integers $W$ and $H$ ($1 \le W, H \le 10^9$) the dimensions of the room.
+The first line contains an integer $Q$ ($1 \le Q \le 100\,000$), the number of test cases in a single file.
 
-The second line contains the starting position $x_{s_1}, y_{s_1}$ and destination $x_{d_1}, y_{d_1}$ of the first drone,
-and the third line contains the starting position $x_{s_2}, y_{s_2}$ and destination $x_{d_2}, y_{d_2}$ of the second drone ($0 \le x_i < W$, $0 \le y_i < H$).
+The second line contains the integers $W$ and $H$ ($1 \le W, H \le 10^9$), the dimensions of the room.
+
+The third line contains the starting position $x_{s_1}, y_{s_1}$ and destination $x_{d_1}, y_{d_1}$ of the first drone,
+and the fourth and final line contains the starting position $x_{s_2}, y_{s_2}$ and destination $x_{d_2}, y_{d_2}$ of the second drone ($0 \le x_i < W$, $0 \le y_i < H$).
 
 No drone starts at its destination, and the starting positions of the drones are different.
 
@@ -42,7 +44,7 @@ To get the points for a test group you need to solve all test cases in the test 
   $1$    & $??$        &  The four input points are the corners of an non-degenerate axis-aligned rectangle. \\ \hline
   $2$    & $??$        &  $x_{s_1} = x_{d_1}$ and $y_{s_2} = y_{d_2}$ \\ \hline
   $3$    & $??$        &  $W = 1$ \\ \hline
-  $4$    & $??$        &  $W, H \le 200$ \\ \hline
-  $5$    & $??$        &  $W, H \le 10^6$ \\ \hline
+  $4$    & $??$        &  $W, H \le 50$, $Q \le 150$ \\ \hline
+  $5$    & $??$        &  $W, H \le 1\,000$, $Q \le 1000$ \\ \hline
   $6$    & $??$        &  No additional constraints \\ \hline
 \end{tabular}
