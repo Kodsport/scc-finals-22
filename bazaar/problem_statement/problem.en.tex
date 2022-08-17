@@ -1,0 +1,38 @@
+\problemname{Bazaar}
+In an epic but tiny pirate game, several players compete for resources in order to gain a large enough booty to bury at deserted islands.
+After pillaging resources from peaceful settlements, players need to visit the bazaar in order to exchange their goods for pieces o' eight to add to their booty.
+
+There are $2N$ different goods in the game, each of a different type such as coffee, silk and sugarcane.
+The bazaar has the following mechanism for setting the prices of each good.
+There is always exactly one good that is priced $i$ pieces o' eight, for each positive integer $i$ such that $1 \le i \le 2N$.
+At the start of the game, the price of good is randomly assigned.
+Whenever a pirate sells a good priced $i$, its new price becomes $1$.
+Furthermore, a type priced $j$ where $1 \le j < i$ has its price set to $j + 1$.
+
+Two players are in the endgame phase of a match, and are now rapidly trying to sell off all their pillaged goods.
+At the moment, each player is in possession of exactly $N$ goods.
+A player can only exchange a single good per turn, after which the turn passes over to the other player.
+Given the current prices of the goods and the number of goods each player has of each type, your task is to compute the difference between the amount of pieces o' eight the players receive, if they are playing optimally.
+Optimal play means that if $A$ and $B$ are the numbers of pieces o' eight the first and second player receives respectively, player $A$ tries to maximize $A - B$, while player $B$ tries to maximize $B - A$.
+
+\section*{Input}
+The first line contains the even integer $2N$ ($1 \le 2N \le 100\,000$), the number of types of goods in the game.
+
+The next line contains $N$ space-separated integers $a_1, \dots, a_N$ ($1 \le a_i \le 2N$), the prices of the goods that the first player has.
+This is followed by a line of the same format containing the prices of goods that the second player has.
+
+\section*{Output}
+Output a single integer: the number of pieces o' eight the first player receives minus the number of pieces o' eight the second player receives, if playing optimally as described in the statement.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | l |}
+  \hline
+  Group & Points & Constraints \\ \hline
+  $1$    & $??$        &  $2N \le 10$ . \\ \hline
+  $2$    & $??$        &  $2N \le 2\,000$. \\ \hline
+  $3$    & $??$        &  No additional constraints. \\ \hline
+\end{tabular}
