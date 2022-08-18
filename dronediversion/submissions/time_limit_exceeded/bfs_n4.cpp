@@ -1,4 +1,4 @@
-/* @EXPECTED_GRADES@ TLE RTE TLE TLE TLE */
+/* @EXPECTED_GRADES@ RTE RTE TLE TLE RTE */
 #include <bits/stdc++.h>
 using namespace std;
 

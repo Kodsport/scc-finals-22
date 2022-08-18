@@ -1,3 +1,4 @@
+/* @EXPECTED_GRADES@ AC AC WA WA WA */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -33,6 +34,7 @@ void shift(pii& start, pii& dest, int moves) {
 
 bool crossing(int xs1, int ys1, int yd1, int xs2, int ys2, int xd2) {
     int t1 = abs(xs2 - xs1), t2 = abs(ys1 - ys2);
+    if (t1 != t2) return false;
     if (t1 > abs(ys1 - yd1) || t1 > abs(xs2 - xd2)) return false;
     move(ys1, yd1, t1);
     move(xs2, xd2, t1);
@@ -77,7 +79,7 @@ bool mustCrash() {
     vector<pair<pii, pii>> xy2 = {make_pair(pii(xs2, ys2), pii(xd2, ys2)), make_pair(pii(xd2, ys2), pii(xd2, yd2))};
     vector<pair<pii, pii>> yx1 = {make_pair(pii(xs1, ys1), pii(xs1, yd1)), make_pair(pii(xs1, yd1), pii(xd1, yd1))};
     vector<pair<pii, pii>> yx2 = {make_pair(pii(xs2, ys2), pii(xs2, yd2)), make_pair(pii(xs2, yd2), pii(xd2, yd2))};
-    return collides(xy1, xy2) && collides(xy1, yx2) && collides(yx1, xy2) && collides(yx1, yx2);
+    return collides(xy1, xy2) && collides(yx1, xy2) && collides(yx1, yx2);
 }
 
 void fixSameDir() {

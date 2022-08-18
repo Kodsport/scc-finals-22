@@ -1,3 +1,4 @@
+/* @EXPECTED_GRADES@ WA AC WA WA WA */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -54,8 +55,6 @@ bool intersects(pair<pii, pii> a, pair<pii, pii> b, int ashift, int bshift) {
 
     if (a.first.first == a.second.first && b.first.first == b.second.first)
         return a.first.first == b.first.first && line(a.first.second, a.second.second, b.first.second, b.second.second);
-     else if (a.first.second == a.second.second && b.first.second == b.second.second)
-        return a.first.second == b.first.second && line(a.first.first, a.second.first, b.first.first, b.second.first);
      else if (a.first.first == a.second.first && b.first.second == b.second.second)
         return crossing(a.first.first, a.first.second, a.second.second, b.first.first, b.first.second, b.second.first);
      else

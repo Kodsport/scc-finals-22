@@ -1,3 +1,4 @@
+/* @EXPECTED_GRADES@ RTE AC RTE RTE RTE */
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -33,7 +34,7 @@ void shift(pii& start, pii& dest, int moves) {
 
 bool crossing(int xs1, int ys1, int yd1, int xs2, int ys2, int xd2) {
     int t1 = abs(xs2 - xs1), t2 = abs(ys1 - ys2);
-    if (t1 > abs(ys1 - yd1) || t1 > abs(xs2 - xd2)) return false;
+    if (t1 != t2) return false;
     move(ys1, yd1, t1);
     move(xs2, xd2, t1);
     return xs1 == xs2 && ys1 == ys2;

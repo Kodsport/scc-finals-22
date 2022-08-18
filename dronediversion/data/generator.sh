@@ -17,6 +17,8 @@ sample 1
 group group1 1
 limits twolines=1
 
+tc_manual ../manual_tests/mustcrash-cross.in
+
 tc all-crosses-7x7 gen_exhaustive_cross w=7 h=7
 tc random-cross-100k gen_random_cross
 tc random-cross-small-100k gen_random_cross w=300 h=300
@@ -36,6 +38,8 @@ tc random-sameline-mid-100k gen_random_sameline w=10000
 group group3 1
 limits w=50 h=50 q=150
 
+tc_manual ../manual_tests/mustcrash-xy.in
+
 tc 1
 tc all-2x2 gen_exhaustive w=2 h=2
 tc all-crosses-3x2 gen_exhaustive_cross w=3 h=2
@@ -51,6 +55,8 @@ tc random-50x50 gen_random q=150 w=50 h=50
 group group4 1
 limits w=1000 h=1000 q=1000
 include_group group3
+
+tc_manual ../manual_tests/mustcrash-xy-mid.in
 
 tc all-3x2 gen_exhaustive w=3 h=2
 tc all-3x3 gen_exhaustive w=2 h=3
@@ -68,6 +74,8 @@ include_group group1
 include_group group2
 include_group group3
 include_group group4
+
+tc_manual ../manual_tests/mustcrash-xy-big.in
 
 tc all-4x5 gen_exhaustive w=4 h=5
 tc random-50x50-100k gen_random q=100000 w=50 h=50
