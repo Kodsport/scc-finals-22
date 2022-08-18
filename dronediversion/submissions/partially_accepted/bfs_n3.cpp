@@ -90,10 +90,10 @@ int main(int argc, char** argv) {
 	cin.tie(0)->sync_with_stdio(0);
 	cin.exceptions(cin.failbit);
     
-    int TC = argc == 1 ? 1 : 0;
+    int TC = 0;
     if (!TC) cin >> TC;
     rep(i,1,TC+1) {
-        // cout << i << " ";
+        if (i%100000 == 0) cerr << i << " ";
         solve();
     }
 }
