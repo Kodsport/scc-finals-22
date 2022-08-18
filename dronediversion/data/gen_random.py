@@ -1,7 +1,3 @@
-#!/usr/bin/python3
-
-# Example generator, prints n and then n numbers in the range 1 to 1000.
-
 import sys
 import random
 
@@ -15,8 +11,27 @@ def cmdlinearg(name, default=None):
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
-n = int(cmdlinearg('n'))
+q = int(cmdlinearg('q', 100000))
+h = int(cmdlinearg('h', 10**9))
+w = int(cmdlinearg('w', 10**9))
 
-ar = [random.randint(1, 1000) for _ in range(n)]
-print(n)
-print(*ar)
+print(q)
+while q:
+    i1 = random.randint(0, w - 1)
+    j1 = random.randint(0, h - 1)
+    k1 = random.randint(0, w - 1)
+    l1 = random.randint(0, h - 1)
+
+    i2 = random.randint(0, w - 1)
+    j2 = random.randint(0, h - 1)
+    k2 = random.randint(0, w - 1)
+    l2 = random.randint(0, h - 1)
+
+    if i1 == k1 and j1 == l1: continue
+    if i1 == i2 and j1 == j2: continue
+    if i2 == k2 and j2 == l2: continue
+
+    print(w, h)
+    print(i1, j1, k1, l1)
+    print(i2, j2, k2, l2)
+    q -= 1

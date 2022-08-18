@@ -1,10 +1,13 @@
 #include "validator.h"
 
 void run() {
-    int Q = Int(1, Arg("q")); Endl();
+    int maxw = Arg("w", 1'000'000'000);
+    int maxh = Arg("h", 1'000'000'000);
+    bool twolines = Arg("twolines", 0);
+    int Q = Int(1, Arg("q", 100000)); Endl();
     for (int q = 0; q < Q; ++q) {
-        int W = Int(2, Arg("W")); Space();
-        int H = Int(2, Arg("H")); Endl();
+        int W = Int(1, maxw); Space();
+        int H = Int(1, maxh); Endl();
 
         int xs1 = Int(0, W - 1); Space();
         int ys1 = Int(0, H - 1); Space();
@@ -22,14 +25,7 @@ void run() {
         // Different starting positions
         assert(xs1 != xs2 || ys1 != ys2);
 
-        if (Arg("x0", 0)) {
-            assert(xs1 == 0);
-            assert(xd1 == 0);
-            assert(xs2 == 0);
-            assert(xd2 == 0);
-        }
-
-        if (Arg("twolines", 0)) {
+        if (twolines) {
             assert(xs1 == xd1);
             assert(ys2 == yd2);
         }

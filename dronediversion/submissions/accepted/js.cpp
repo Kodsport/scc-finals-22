@@ -1,4 +1,3 @@
-/* @EXPECTED_GRADES@ AC AC AC AC AC AC */
 #include <bits/stdc++.h>
 using namespace std;
 
