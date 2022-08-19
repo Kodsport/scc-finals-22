@@ -1,0 +1,47 @@
+\problemname{Closeness Queries}
+In an undirected graph, we define the distance between two vertices $u$ and $v$ as the minimum length of a sequence of edges starting at $u$ and ending at $v$.
+Given $Q$ pairs of vertices in the graph, can you for each pair of vertices compute the distance between them?
+
+The $M$ edges of the graph have been chosen using the following method:
+\begin{verbatim}
+for i between 1...M:
+    choose a random edge not in the graph
+    add the edge to the graph
+\end{verbatim}
+
+The $Q$ queries have been chosen using the following method:
+\begin{verbatim}
+for i between 1...Q:
+    choose a random pair of distinct vertices
+\end{verbatim}
+
+\section*{Input}
+The first line contains the integers $N$ and $M$ ($N = 45\,000$, $M \le 200\,000$). 
+
+The next $M$ lines contains the edges of the graph.
+Each line consists of two integers $u$ and $v$ ($0 \le u \neq v < N$, the vertices of the edge).
+
+This is followed by a line containing the number of pairs of vertices $Q$ ($1 \le Q \le 2\,000$).
+
+The next and final $Q$ lines each contains two \textbf{distinct} integers: the name of the vertices in a pair.
+
+\section*{Output}
+For each pair of vertices in the input, output the distance between them.
+
+If there is no path between the vertices, output \texttt{-1}.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+To get the points for a test group you need to solve all test cases in the test group.
+
+\textbf{Note}: For group $2$, you can get part of the score.
+Let the correct distance for a pair is $d$ and your answer is $d'$.
+If $d' \le d \le 2d'$ for every query or no path exist (and you give an arbitrary integer answer between $-1$ and $N$), you will receive $15$ points. 
+
+\noindent
+\begin{tabular}{| l | l | p{10cm} |}
+  \hline
+  Group & Points & Constraints \\ \hline
+  $1$    & $10$        &  $Q = 1$ \\ \hline
+  $2$    & $30$       & \\ \hline
+\end{tabular}
