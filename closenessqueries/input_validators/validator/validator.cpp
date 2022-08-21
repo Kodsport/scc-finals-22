@@ -16,7 +16,7 @@ void run() {
     }
 
 
-    int Q = Int(1, Arg("q", 100000)); Endl();
+    int Q = Int(1, Arg("q", 10000)); Endl();
     for (int i = 0; i < Q; i++) {
         int a = Int(0, N - 1); Space();
         int b = Int(0, N - 1); Endl();

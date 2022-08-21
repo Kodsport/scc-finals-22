@@ -14,7 +14,7 @@ typedef vector<int> vi;
 typedef vector<ll> vl;
 typedef long double ld;
 
-void check_case(int score, bool partial){
+void check_case() {
     int N, M;
     judge_in >> N >> M;
     rep(i,0,M) {
@@ -23,6 +23,20 @@ void check_case(int score, bool partial){
     }
     int Q;
     judge_in >> Q;
+
+    // Kattis doesn't support output validator flags, so...
+    int score;
+    bool partial = false;
+    if (Q == 1) {
+        score = 10;
+    } else if (N <= 10 && Q <= 10) { // sample
+        score = 0;
+    } else if (M == 200000) {
+        score = 30;
+        partial = true;
+    } else {
+        judge_error("Unknown test case, cannot score");
+    }
 
     bool correct = true;
     bool factor2 = true;
@@ -36,7 +50,7 @@ void check_case(int score, bool partial){
             judge_message("First fail query %d: got %d, wanted %d\n", i, team_ans, ans);
             correct = false;
         }
-        if (factor2 && ans != -1 && !(team_ans <= ans && ans <= team_ans * 2)) {
+        if (factor2 && ans != -1 && !(0 <= team_ans && team_ans <= ans && ans <= team_ans * 2)) {
             judge_message("First non-factor 2 query %d: got %d, wanted %d\n", i, team_ans, ans);
             factor2 = false;
         }
@@ -55,11 +69,6 @@ void check_case(int score, bool partial){
 int main(int argc, char **argv) {
     init_io(argc, argv);
 
-    int score = 0;
-    bool partial = false;
-    if (argc >= 5) score = stoi(argv[4]); 
-    if (argc >= 6) partial = true;
-
-    check_case(score, partial);
+    check_case();
     return 0;
 }

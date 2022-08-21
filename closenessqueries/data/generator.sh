@@ -8,12 +8,10 @@ compile gen_graph.py
 
 samplegroup
 limits n=1 m=1
-output_validator_flags \"0\"
 sample 1
 
 group group1 10
 limits q=1
-output_validator_flags \"10\"
 
 tc q1-01 gen_graph q=1
 tc q1-02 gen_graph q=1
@@ -27,7 +25,6 @@ tc q1-09 gen_graph q=1
 tc q1-10 gen_graph q=1
 
 group group2 30
-output_validator_flags 30 partial
 
 tc qb-01 gen_graph
 tc qb-02 gen_graph
