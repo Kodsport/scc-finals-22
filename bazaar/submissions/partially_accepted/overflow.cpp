@@ -25,7 +25,7 @@ ll count01(const vector<bool>& inp) {
         if (!inp[i]) res += one;
         if (inp[i]) one++;
     }
-    ll N = sz(inp) / 2;
+    int N = sz(inp) / 2;
     return N * (N - 1) / 2 - res;
 }
 

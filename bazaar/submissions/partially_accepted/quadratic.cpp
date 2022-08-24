@@ -20,32 +20,35 @@ bool within(int r, int c, int R, int C) { return 0 <= r && r < R && 0 <= c && c 
 
 const int INF = 1'000'000;
 
-int count01(const vector<bool>& inp) {
-    int res = 0;
+ll count01(const vector<bool>& inp) {
+    ll res = 0;
     rep(i,0,sz(inp)) {
         rep(j,i + 1,sz(inp)) {
-            if (inp[i] == false && inp[j] == true) --res;
+            if (inp[i] == true && inp[j] == false) ++res;
         }
     }
-    int N = sz(inp) / 2;
-    return res + N * (N - 1) / 2;
+    ll N = sz(inp) / 2;
+    return N * (N - 1) / 2 - res;
 }
 
 void solve() {
     int N;
     cin >> N;
     vector<bool> inp(N);
+    ll base = 0;
     rep(i,0,N / 2) {
         int x;
         cin >> x;
-        inp[N - x] = false;
+        inp[x - 1] = false;
+        base += x;
     }
     rep(i,0,N / 2) {
         int x;
         cin >> x;
-        inp[N - x] = true;
+        inp[x - 1] = true;
+        base -=x;
     }
-    cout << count01(inp) << endl;
+    cout << base + count01(inp) << endl;
 }
 
 int main() {

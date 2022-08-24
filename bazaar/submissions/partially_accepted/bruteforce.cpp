@@ -24,12 +24,12 @@ int bf(const vector<bool>& inp, vector<bool>& used, bool turn) {
     int res = -INF;
     int bal = 0;
 
-    for (int i = sz(inp) - 1; i >= 0; --i) {
+    for (int i = 0; i < sz(inp); ++i) {
         if (used[i]) continue;
 
         if (inp[i] == turn) {
             used[i] = true;
-            res = max(res, bal - bf(inp, used, !turn));
+            res = max(res, bal - bf(inp, used, !turn) + i);
             used[i] = false;
         }
 
@@ -46,12 +46,12 @@ void solve() {
     rep(i,0,N / 2) {
         int x;
         cin >> x;
-        inp[N - x] = false;
+        inp[x - 1] = false;
     }
     rep(i,0,N / 2) {
         int x;
         cin >> x;
-        inp[N - x] = true;
+        inp[x - 1] = true;
     }
     vector<bool> used = make(false, sz(inp));
     cout << bf(inp, used, false) << endl;
