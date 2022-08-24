@@ -7,7 +7,7 @@ Given a series of votes, it's easy to determine if any of the candidates has won
 Of course, centralized single-processor algorithms are \emph{so} 2021.
 In these modern times, an algorithm is barely of interest unless it can be parallelized to more than a thousand processors.
 
-Your task is to determine if there is a candidate that received a strict majority of the votes in an election that $N$ citizens participated in, and if so, whom.
+Your task is to determine if there is a candidate that received a strict majority of the votes in an election that $N$ citizens participated in, and if so, who.
 At your disposal is a super-parallel processor that can perform the following operation almost instantly.
 Let, for each $i$ where $1 \le i \le N$, $c_i$ be the candidate that the $i$'th citizen cast their vote for.
 You can provide a sequence of integers $a_1, a_2, \dots, a_N$ ($1 \le a_i \le N$) and the processor will tell you whether $c_i = c_{a_i}$ for each $1 \le i \le N$.
