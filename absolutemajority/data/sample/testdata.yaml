@@ -1,0 +1,4 @@
+on_reject: break
+range: 0 0
+grading: custom
+grader_flags: sample

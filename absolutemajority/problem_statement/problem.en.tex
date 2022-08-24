@@ -1,0 +1,19 @@
+\problemname{Absolute Majority}
+$1 \le N \le 100\,000$ items, each with a secret number $c_i$.
+Interactive queries of the form $? a_1 a_2 \dots a_N$: for each query a bitstring $r$ of length $N$ is returned, where $r_i = 1$ if $c_i = c_{a_1}$, else $0$.
+Finally a query of the form $! i$ where $i$ should be an index such that strictly more than half of all secret numbers equal $c_i$, or $-1$ indicating there is no majority.
+
+\section*{Interactivity}
+This problem is interactive.
+
+\section*{Scoring}
+Your solution will be tested on a set of test cases.
+If any test case is answered incorrectly, your solution will graded as incorrect.
+Otherwise, let $Q$ denote the maximum number of \texttt{?} queries needed for any test case.
+Depending on $Q$ your solution will be awarded different number of points.
+
+\begin{itemize}
+  \item If $10 < Q \le 30$ your solution will be awarded $10$ points.
+  \item If $3 < Q \le 10$ your solution will be awarded $20$ points.
+  \item If $Q \le 3$ your solution will be awarded $30$ points.
+\end{itemize}
