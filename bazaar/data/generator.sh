@@ -12,12 +12,14 @@ compile gen_random.py
 samplegroup
 sample 1
 sample 2
+sample 3
 
 group group1 1
 limits 2n=10
 
 tc 1
 tc 2
+tc 3
 tc 01-small gen_01 n=5
 tc 10-small gen_10 n=5
 tc alt-small gen_alt n=5
