@@ -1,19 +1,45 @@
-\problemname{Absolute Majority}
-$1 \le N \le 100\,000$ items, each with a secret number $c_i$.
-Interactive queries of the form $? a_1 a_2 \dots a_N$: for each query a bitstring $r$ of length $N$ is returned, where $r_i = 1$ if $c_i = c_{a_1}$, else $0$.
-Finally a query of the form $! i$ where $i$ should be an index such that strictly more than half of all secret numbers equal $c_i$, or $-1$ indicating there is no majority.
+\problemname{Adding Up the Votes}
+2022 is an exciting year!
+The end of the COVID-19 pandemic is inching ever closer, the Swedish Coding Cup celebrates its 5-year anniversary, and it's election year in Sweden.
+
+That last point is of particular interest, because computer science researchers at KTH Royal Institute of Technology, the host of the SCC 2021-2022 finals, have been studying how to count votes as quickly as possible.
+Given a series of votes, it's easy to determine if any of the candidates has won a majority of votes in linear time: you just count the votes one at a time and keep a tally for each candidate.
+Of course, centralized single-processor algorithms are \emph{so} 2021.
+In these modern times, an algorithm is barely of interest unless it can be parallelized to more than a thousand processors.
+
+Your task is to determine if there is a candidate that received a strict majority of the votes in an election that $N$ citizens participated in, and if so, whom.
+At your disposal is a super-parallel processor that can perform the following operation almost instantly.
+Let, for each $i$ where $1 \le i \le N$, $c_i$ be the candidate that the $i$'th citizen cast their vote for.
+You can provide a sequence of integers $a_1, a_2, \dots, a_N$ ($1 \le a_i \le N$) and the processor will tell you whether $c_i = c_{a_i}$ for each $1 \le i \le N$.
+Your score for the problem depends on how many times you use the processor (see the Scoring sections for the details).
 
 \section*{Interactivity}
-This problem is interactive.
+This problem is interactive; you will communicate with the grader through reading from standard in and writing to standard out.
+First, the grader will write a single line containing the integer $N$ ($1 \l N \le 100\,000$), the number of citizens that participated in the election.
+
+Next, you may use the super-parallel processor a number of times.
+For each use, output a single line \texttt{? a\_1 a\_2 ... a\_N} where $a_1, \dots, a_N$ are integers between $1$ and $N$.
+The grader will then output a line containing a string consisting of $N$ characters \texttt{0} or \texttt{1}.
+The $i$'th of these is $1$ if $c_i = c_{a_i}$ and $0$ otherwise.
+
+Finally, you must output a single line of the form \texttt{! X} where $X$ is such that candidate $c_X$ received strictly more than half of the votes, i.e. $c_X = c_i$ for strictly more than half of all $1 \le i \le N$.
+If no such $X$ exists, you should instead output \texttt{! -1}.
+
+After this, your program must immediately exit.
 
 \section*{Scoring}
 Your solution will be tested on a set of test cases.
 If any test case is answered incorrectly, your solution will graded as incorrect.
-Otherwise, let $Q$ denote the maximum number of \texttt{?} queries needed for any test case.
-Depending on $Q$ your solution will be awarded different number of points.
+Otherwise, let $Q$ denote the maximum number of times your program used the super-parallel processor for any test case.
+Depending on $Q$ your solution will be awarded different number of points:
 
-\begin{itemize}
-  \item If $10 < Q \le 30$ your solution will be awarded $10$ points.
-  \item If $3 < Q \le 10$ your solution will be awarded $20$ points.
-  \item If $Q \le 3$ your solution will be awarded $30$ points.
-\end{itemize}
+\begin{center}
+\begin{tabular}{|l|l|}
+    \hline
+    \textbf{Condition} & \textbf{Points} \\ \hline
+    $30 < Q$ & $0$ (judged as Wrong Answer)\\ \hline
+    $10 < Q \le 30$ & $10$ \\ \hline
+    $3 < Q \le 10$ & $20$ \\ \hline
+    $Q < 3$ & $30$ \\ \hline
+\end{tabular}
+\end{center}
