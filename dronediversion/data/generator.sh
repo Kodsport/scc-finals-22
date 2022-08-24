@@ -17,7 +17,6 @@ sample 1
 group group1 1
 limits twolines=1
 
-tc_manual ../manual_tests/mustcrash-cross.in
 
 tc all-crosses-7x7 gen_exhaustive_cross w=7 h=7
 tc random-cross-100k gen_random_cross
@@ -28,6 +27,7 @@ tc random-cross-mid-100k gen_random_cross w=10000 h=10000
 # $2$    & $??$        &  $W = 1$ \\ \hline
 group group2 1
 limits w=1
+tc_manual ../manual_tests/mustcrash-line.in
 
 tc all-1x30 gen_exhaustive w=1 h=30
 tc random-sameline-100k gen_random_sameline

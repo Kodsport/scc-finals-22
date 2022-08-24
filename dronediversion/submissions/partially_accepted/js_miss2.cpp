@@ -1,4 +1,4 @@
-/* @EXPECTED_GRADES@ WA AC WA WA WA */
+/* @EXPECTED_GRADES@ AC AC WA WA WA */
 #include <bits/stdc++.h>
 using namespace std;
 
