@@ -1,0 +1,32 @@
+\problemname{Evasion}
+A monster is loose in a tree with $N$ nodes. The monster starts at node $A$, you start at node $B$. You know which $M$ nodes the monster will walk through thereafter.
+You are trying to keep away from the monster, while moving as little as possible. Before the monster makes a move, you may make any number of moves.
+
+What is the minimal number of moves you have to make?
+
+\section*{Input}
+The first line contains the integers $N$, $M$, $A$ and $B$ ($2 \le N \le 100\,000$, $1 \le M \le 500\,000$, $1 \le A \neq B \le N$). 
+
+The next $N-1$ lines contains the edges of the tree.
+Each line consists of two integers $u$ and $v$ ($1 \le u \neq v \le N$, the vertices of the edge).
+
+The final line contains $M$ numbers $a_1, \dots, a_M$, the vertices the monster moves through ($1 \le a_i \le N$).
+It is guaranteed that $a_i$ and $a_{i+1}$ are adjacent vertices of the tree for $1 \le i \le M-1$, and that $A$ and $a_1$ are adjacent.
+
+\section*{Output}
+Output a single integer, the minimal number of moves you have to perform to avoid the monster.
+
+If avoiding the monster is impossible, output \texttt{-1}.
+
+\section*{Scoring}
+Your solution will be tested on a set of test groups, each worth a number of points.
+To get the points for a test group you need to solve all test cases in the test group.
+
+\noindent
+\begin{tabular}{| l | l | p{10cm} |}
+  \hline
+  Group & Points & Constraints \\ \hline
+  $1$   & $10$   & $N \le 100$, $M \le 500$ \\ \hline
+  $2$   & $10$   & Each vertex has degree at most $3$. \\ \hline
+  $3$   & $10$   & No additional constraints. \\ \hline
+\end{tabular}
