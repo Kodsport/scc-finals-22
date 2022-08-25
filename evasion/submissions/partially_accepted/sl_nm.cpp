@@ -15,8 +15,8 @@ vi dp;
 vector<vi> ed;
 
 void dfs(int x, int dist = 0, int par = -1) {
-	if (dp[x] == inf) return;
-	dp[x] = dist;
+	if (dp[x] == inf) dist = inf;
+	dp[x] = min(dist, inf);
 	trav(y, ed[x]) if (y != par) {
 		dfs(y, dist + 1, x);
 	}
@@ -46,7 +46,7 @@ int main() {
 		--a;
 		dp[a] = inf;
 		for (;;) {
-			vi dp2(N, inf);
+			vi dp2 = dp;
 			rep(i,0,N) trav(e, ed[i]) {
 				dp2[i] = min(dp2[i], dp[e] + 1);
 			}
