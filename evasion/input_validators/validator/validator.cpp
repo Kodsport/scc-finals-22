@@ -18,11 +18,7 @@ struct UF {
 
 void run() {
     int N = Int(2, Arg("n")); Space();
-    int M = Int(1, Arg("m")); Space();
-
-	int A = Int(1, N); Space();
-	int B = Int(1, N); Endl();
-	assert(A != B);
+    int M = Int(1, Arg("m")); Endl();
 
 	UF uf(N);
 
@@ -31,7 +27,8 @@ void run() {
     for (int i = 0; i < N-1; i++) {
         int a = Int(1, N); Space();
         int b = Int(1, N); Endl();
-		assert(uf.join(a-1, b-1));
+        --a; --b;
+		assert(uf.join(a, b));
 		ed.insert({a, b});
 		ed.insert({b, a});
 		deg[a]++;
@@ -43,9 +40,10 @@ void run() {
 		assert(deg[i] <= maxDeg);
 	}
 
-	int prev = A;
+	int prev = 0;
 	vector<int> moves = SpacedInts(M, 1, N);
 	for (int i = 0; i < M; i++) {
+        --moves[i];
 		assert(ed.count({prev, moves[i]}));
 		prev = moves[i];
 	}

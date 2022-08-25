@@ -76,8 +76,11 @@ walk = gen_walk(a, m)
 ren = list(range(1, n+1))
 random.shuffle(ren)
 
+ren[ren.index(1)], ren[a] = ren[a], ren[ren.index(1)]
+ren[ren.index(2)], ren[b] = ren[b], ren[ren.index(2)]
+
 random.shuffle(eds)
-print(n, m, ren[a], ren[b])
+print(n, m)
 for (u, v) in eds:
     if random.choice([True, False]):
         u, v = v, u
