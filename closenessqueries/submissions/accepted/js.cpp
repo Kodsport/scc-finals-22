@@ -18,17 +18,34 @@ template<typename A, typename B> auto smax(A& a, const B& b) { if (b > a) a = b;
 template<typename A, typename B> auto smin(A& a, const B& b) { if (b < a) a = b;}
 bool within(int r, int c, int R, int C) { return 0 <= r && r < R && 0 <= c && c < C; }
 
+struct UF {
+  vi e;
+  UF(int n) : e(n, -1) {}
+  bool sameSet(int a, int b) { return find(a) == find(b); }
+  int size(int x) { return -e[find(x)]; }
+  int find(int x) { return e[x] < 0 ? x : e[x] = find(e[x]); }
+  bool join(int a, int b) {
+    a = find(a), b = find(b);
+    if (a == b) return false;
+    if (e[a] > e[b]) swap(a, b);
+    e[a] += e[b]; e[b] = a;
+    return true;
+  }
+};
+
 vector<vi> G;
 
 void solve() {
     int N, M;
     cin >> N >> M;
     G.resize(N);
+    UF uf(N);
     rep(i,0,M) {
         int a, b;
         cin >> a >> b;
         G[a].push_back(b);
         G[b].push_back(a);
+        uf.join(a, b);
     }
 
     int Q;
@@ -36,6 +53,10 @@ void solve() {
     rep(i,0,Q) {
         int a, b;
         cin >> a >> b;
+        if(!uf.sameSet(a,b)) {
+            cout << -1 << '\n';
+            continue;
+        }
         unordered_set<int> A, B;
         A.insert(a);
         B.insert(b);

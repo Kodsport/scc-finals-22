@@ -14,7 +14,7 @@ samplegroup
 sample 1
 
 # $1$    & $??$        &  $x_{s_1} = x_{d_1}$ and $y_{s_2} = y_{d_2}$ \\ \hline
-group group1 1
+group group1 15
 limits twolines=1
 
 
@@ -25,7 +25,7 @@ tc random-cross-elongated-100k gen_random_cross w=300 h=10000
 tc random-cross-mid-100k gen_random_cross w=10000 h=10000
 
 # $2$    & $??$        &  $W = 1$ \\ \hline
-group group2 1
+group group2 16
 limits w=1
 tc_manual ../manual_tests/mustcrash-line.in
 
@@ -35,7 +35,7 @@ tc random-sameline-small-100k gen_random_sameline w=300
 tc random-sameline-mid-100k gen_random_sameline w=10000
 
 # $3$    & $??$        &  $W, H \le 50$, $Q \le 150$ \\ \hline
-group group3 1
+group group3 20
 limits w=50 h=50 q=150
 
 tc_manual ../manual_tests/mustcrash-xy.in
@@ -52,7 +52,7 @@ tc random-10x10 gen_random q=150 w=10 h=10
 tc random-50x50 gen_random q=150 w=50 h=50
 
 # $4$    & $??$        &  $W, H \le 1\,000$, $Q \le 1000$ \\ \hline
-group group4 1
+group group4 34
 limits w=1000 h=1000 q=1000
 include_group group3
 
@@ -69,7 +69,7 @@ tc random-500x500 gen_random q=1000 w=500 h=500
 tc random-1000x1000 gen_random q=1000 w=1000 h=1000
 
 # $5$    & $??$        &  No additional constraints \\ \hline
-group group5 1
+group group5 15
 include_group group1
 include_group group2
 include_group group3

@@ -24,7 +24,7 @@ tc q1-08 gen_graph q=1
 tc q1-09 gen_graph q=1
 tc q1-10 gen_graph q=1
 
-group group2 30
+group group2 40
 
 tc qb-01 gen_graph
 tc qb-02 gen_graph

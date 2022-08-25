@@ -14,7 +14,7 @@ sample 1
 sample 2
 sample 3
 
-group group1 1
+group group1 13
 limits 2n=10
 
 tc 1
@@ -29,7 +29,7 @@ tc rand2-small gen_random n=5
 tc rand3-small gen_random n=5
 tc rand4-small gen_random n=5
 
-group group2 1
+group group2 26
 limits 2n=2000
 include_group group1
 
@@ -42,7 +42,7 @@ tc rand2-mid gen_random n=1000
 tc rand3-mid gen_random n=1000
 tc rand4-mid gen_random n=1000
 
-group group3 1
+group group3 11
 limits 2n=100000
 include_group group2
 

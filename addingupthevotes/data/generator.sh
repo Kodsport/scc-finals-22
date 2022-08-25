@@ -37,8 +37,8 @@ tc seven-close3 n=7 s=4,3
 tc nine-many-unique n=9 s=5
 tc nine-close1 n=9 s=5,4
 tc nine-close2 n=9 s=5,4
-tc eleven-close n=11 s=6,5
-tc eleven-close n=11 s=6,5
+tc eleven-close1 n=11 s=6,5
+tc eleven-close2 n=11 s=6,5
 tc eleven-many-unique n=11 s=6
 for A in {1..10}; do
   tc small-close1-$A n=$((A*2+11)) s=$((A+6)),$((A+5))

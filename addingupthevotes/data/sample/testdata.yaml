@@ -1,4 +1,4 @@
 on_reject: break
 range: 0 0
-grader: custom
+grading: custom
 grader_flags: sample

@@ -32,7 +32,7 @@ void check_case() {
     } else if (N <= 10 && Q <= 10) { // sample
         score = 0;
     } else if (M == 200000) {
-        score = 30;
+        score = 40;
         partial = true;
     } else {
         judge_error("Unknown test case, cannot score");
