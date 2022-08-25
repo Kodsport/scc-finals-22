@@ -86,8 +86,7 @@ int main() {
 	int N, M;
 	cin >> N >> M;
 	int B;
-	cin >> A >> B;
-	--A, --B;
+    A = 0, B = 1;
 	ed.resize(N+1);
 	rep(i,0,N-1) {
 		int a, b;

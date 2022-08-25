@@ -27,9 +27,7 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 	int N, M;
 	cin >> N >> M;
-	int A, B;
-	cin >> A >> B;
-	--A, --B;
+	int A = 0, B = 1;
 	ed.resize(N);
 	rep(i,0,N-1) {
 		int a, b;
