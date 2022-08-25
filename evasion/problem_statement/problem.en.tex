@@ -1,16 +1,21 @@
 \problemname{Evasion}
-A monster is loose in a tree with $N$ nodes. The monster starts at node $A$, you start at node $B$. You know which $M$ nodes the monster will walk through thereafter.
-You are trying to keep away from the monster, while moving as little as possible. Before the monster makes a move, you may make any number of moves.
+A monster is chasing you in a tree with $N$ vertices, labelled between $1$ and $N$.
+Initially, the monster starts at vertex $1$ and you start at vertex $2$.
+Through careful analysis of the monster's hunting patterns you have concluded that it will move to the (not necessarily distinct) $M$ vertices $a_1$, $a_2$, $\dots$, $a_M$ in order, where $a_i$ and $a_{i+1}$ are adjacent in the tree for all $1 \le i \le M - 1$.
+
+You are trying to keep away from the monster, while performing as few moves as possible.
+A move means moving from a vertex to an adjacent vertex.
+Before the monster moves to a vertex, you may make any number of moves.
 
 What is the minimal number of moves you have to make?
 
 \section*{Input}
-The first line contains the integers $N$, $M$, $A$ and $B$ ($2 \le N \le 100\,000$, $1 \le M \le 500\,000$, $1 \le A \neq B \le N$). 
+The first line contains the integers $N$ ($2 \le N \le 100\,000$) and $M$ ($1 \le M \le 500\,000$), the number of vertices in the tree and the number of moves the monster performs.
 
 The next $N-1$ lines contains the edges of the tree.
-Each line consists of two integers $u$ and $v$ ($1 \le u \neq v \le N$, the vertices of the edge).
+Each line consists of two integers $u$ and $v$ ($1 \le u \neq v \le N$), the vertices of the edge.
 
-The final line contains $M$ numbers $a_1, \dots, a_M$, the vertices the monster moves through ($1 \le a_i \le N$).
+The final line contains the $M$ numbers $a_1, \dots, a_M$, the vertices the monster moves through ($1 \le a_i \le N$) in order.
 It is guaranteed that $a_i$ and $a_{i+1}$ are adjacent vertices of the tree for $1 \le i \le M-1$, and that $A$ and $a_1$ are adjacent.
 
 \section*{Output}
