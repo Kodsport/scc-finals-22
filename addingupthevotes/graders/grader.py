@@ -20,11 +20,15 @@ try:
         if sample:
             score = 0
         elif max_queries <= 3:
-            score = 30
-        elif max_queries <= 10:
-            score = 20
-        elif max_queries <= 30:
-            score = 10
+            score = 100
+        elif max_queries == 4:
+            score = 85
+        elif max_queries == 5:
+            score = 70
+        elif max_queries <= 9:
+            score = 40 + (9 - max_queries) * 7
+        elif max_queries <= 18:
+            score = 20 + (18 - max_queries) * 2
         else:
             score = 0
             verdict = 'WA'
