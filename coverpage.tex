@@ -1,0 +1,88 @@
+\makeatletter
+
+%%
+%% Cover page
+%%
+\newcommand{\coverpage}{
+  \pagestyle{empty}
+  \begin{center}
+    \sf
+    {
+        \vspace*{25mm}
+        \Huge \@contestname }\\
+    \vspace{5mm}
+    \ifx \@location \@empty \relax \else
+    {\LARGE \@location}\\
+    \vspace{8mm}
+    \fi
+    \ifx \@contestlogo \@empty \relax \else
+    \includegraphics[width=12cm]{\@contestlogo}\\
+    \vspace{18mm}
+    \fi
+    %
+    \Huge{\contentsname}\\
+    \vspace{7.5mm}
+    \LARGE
+    \@starttoc{toc}\\
+    \vspace{15mm}
+    {
+      \Large\sf
+      Do not open before the contest has started.
+    }
+  \end{center}
+%  \advicepage
+  \cleardoublepage
+  \pagestyle{fancy}
+  \setcounter{page}{1}
+}
+
+\newcommand{\advicepage}{
+
+  \clearpage
+
+  \thispagestyle{empty}
+
+  {\Large Advice, hints, and general information}
+
+  \begin{itemize}
+  \item
+    The problems are not sorted by difficulty.
+
+  \item
+    For interactive problems, make sure to flush standard out after each write.
+
+  \item
+    If you think some problem is ambiguous or underspecified, you may
+    ask the judges for a clarification request through the Kattis
+    system.  The most likely response is ``No comment, read problem
+    statement'', indicating that the answer can be deduced by
+    carefully reading the problem statement or by checking the sample
+    test cases given in the problem.
+
+  \item
+    Your submissions will be run multiple times, on several different
+    input files.  If your submission is incorrect, the error message you
+    get will be the error exhibited on the first input file on which you
+    failed.  E.g., if your instance is prone to crash but also incorrect,
+    your submission may be judged as either ``wrong answer'' or ``run
+    time error'', depending on which is discovered first.
+
+
+  %% \item
+  %%   For problems with floating point output, we only require
+  %%   that your output is correct up to some error tolerance.
+
+  %%   For example, if the problem requires the output to be within
+  %%   either absolute or relative error of $10^{-4}$, this means that
+  %%   \begin{itemize}
+  %%   \item If the correct answer is $0.05$, any answer between $0.0499$ and $.0501$ will be accepted.
+  %%   \item If the correct answer is $500$, any answer between $499.95$ and $500.05$ will be accepted.
+  %%   \end{itemize}
+  %%   Any reasonable format for floating point numbers is
+  %%   acceptable.  For instance, ``17.000000'', ``0.17e2'', and
+  %%   ``17'' are all acceptable ways of formatting the number $17$.  For
+  %%   the definition of reasonable, please use your common sense.
+\end{itemize}
+}
+
+\makeatother

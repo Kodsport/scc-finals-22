@@ -11,7 +11,7 @@ Whenever a pirate sells a good priced $i$, its new price becomes $1$, and any go
 Two players are in the endgame phase of a match, and are now rapidly trying to sell off all their pillaged goods.
 At the moment, each player is in possession of exactly $N$ goods.
 A player can only exchange a single good per turn, after which the turn passes over to the other player.
-Given the current prices of the goods and the number of goods each player has of each type, your task is to compute the difference between the amount of pieces o' eight the players receive, if they are playing optimally.
+Given the current prices of the goods and what goods each player has, your task is to compute the difference between the amount of pieces o' eight the players receive, if they are playing optimally.
 Optimal play means that if $A$ and $B$ are the numbers of pieces o' eight the first and second player receives respectively, player $A$ tries to maximize $A - B$, while player $B$ tries to maximize $B - A$.
 
 \section*{Input}
@@ -30,7 +30,7 @@ To get the points for a test group you need to solve all test cases in the test 
 \noindent
 \begin{tabular}{| l | l | l |}
   \hline
-  Group & Points & Constraints \\ \hline
+  \textbf{Group} & \textbf{Points} & \textbf{Constraints} \\ \hline
   $1$    & $13$        &  $2N \le 10$ \\ \hline
   $2$    & $26$        &  $2N \le 2\,000$ \\ \hline
   $3$    & $11$        &  No additional constraints. \\ \hline
@@ -40,6 +40,6 @@ To get the points for a test group you need to solve all test cases in the test 
 At the start of the game, the goods of the first player are priced $1$ and $2$, and those of the second player are priced $3$ and $4$.
 One optimal strategy is for the first player to start by selling the good priced $2$, which increases the price of their remaining good to $2$.
 The second player can then sell the good priced $4$, increasing the price of the first player's good to $3$ and the price of second player's remaining good to $4$.
-The two players then sell their remaining good at prices $2$ and $4$.
+The two players then sell their remaining good at prices $3$ and $4$.
 
 The first player receives a total of $2 + 3 = 5$ pieces o' eight, while the second one gets a total of $4 + 4 = 8$ pieces o' eight, o the answer is $5 - 8 = -3$.

@@ -7,10 +7,10 @@ After playing around with an old quadcopter during their free time, the organize
 
 Of course, having a bunch of drones flying around is bound to result in some crashes unless they have some careful object avoidance logic.
 The Coding Cup organizers are almost finished writing this, but decided to outsource a key piece of functionality to you.
-Since drones have a limited amount of battery and processing power, it's preferrable to run the algorithms to avoid crashes as seldom as possible.
+Since drones have a limited amount of battery and processing power, it's preferable to run the algorithms to avoid crashes as seldom as possible.
 An optimization they came up with is to, after two drones located at two given positions have been assigned destinations, check whether the drones will crash no matter what route they take (then trying to avoid each other is pointless), and whether there are any routes where the drones could crash (otherwise they never need to avoid each other).
 
-All drones fly at the same height, so we can consider their positions to be integers $(x, y)$ in the contest hall, which is a rectangle where $x$ is bounded between $0$ and $W - 1$ and $y$ is bounded between $0$ and $H - 1$.
+All drones fly at the same height, so we can consider their positions to be integers $(x, y)$ in the contest hall, which is a rectangle where $x$ is between $0$ and $W - 1$ and $y$ is between $0$ and $H - 1$.
 When a drone flies from position $(x_s, y_s)$ to $(x_d, y_d)$, it does so by every second moving one step along \textbf{either} the $X$-axis or the $Y$-axis.
 Furthermore, drones always fly the shortest possible path to conserve battery, so it takes exactly $|x_s - x_d| + |y_s - y_d|$ seconds for it to reach its destination.
 Two robots crash if they after any number of whole seconds occupy the same position.
