@@ -65,8 +65,7 @@ vi genRegular(int N) {
 	return ret;
 }
 
-int main() {
-	cin.tie(0)->sync_with_stdio(0);
+void solve() {
 	const int Q = 3;
 	int N;
 	cin >> N;
@@ -185,5 +184,16 @@ bad:
 		cout << "! " << maxInd+1 << endl;
 	else
 		cout << "! " << -1 << endl;
-	return 0;
+}
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	cin.exceptions(cin.failbit);
+    
+    int TC = 0;
+    if (!TC) cin >> TC;
+    rep(i,1,TC+1) {
+        // cout << i << " ";
+        solve();
+    }
 }

@@ -30,8 +30,8 @@ string doquery(const vi& query) {
 void solve() {
     int N;
     cin >> N;
-    srand(5);
-    for (int i = 0; i < 7; i++) {
+    srand(22);
+    for (int i = 0; i < 15; i++) {
         int w = rand() % N;
         vi lastcount(N, w);
         string res = doquery(lastcount);
@@ -48,7 +48,7 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 	cin.exceptions(cin.failbit);
     
-    int TC = 1;
+    int TC = 0;
     if (!TC) cin >> TC;
     rep(i,1,TC+1) {
         // cout << i << " ";

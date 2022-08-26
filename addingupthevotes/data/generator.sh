@@ -57,11 +57,31 @@ tc big-twoway3 n=65536 s=32769,32760 order=bitrev
 tc big-twoway4 n=99997 s=49999,49985 order=ltr
 tc big-twoway-nomaj2 n=100000 s=50000,50000
 tc big-allsame n=1e5 s=100000
-tc big-many-unique n=100000 s=50001
-tc big-many-unique2 n=65536 s=32769 order=bitrev
+tc big-all-unique n=100000 s=1
+tc big-many-unique-1 n=10000 s=5001 times=10
+tc big-many-unique-2 n=10000 s=5001 times=10
+tc big-many-unique-3 n=10000 s=5001 times=10
+tc big-many-unique-4 n=65536 s=32769 order=bitrev
 tc big-many-unique-nomaj n=100000 s=49999
 tc big-threesplit n=100000 s=33333,33333,33333
 tc big-threeway n=100000 s=50001,25000,24999
 tc big-fourway n=100000 s=50001,16666,16666,16666
 tc big-fiveway n=100000 s=50001,12500,12500,12499,12499
 tc big-fiveway-nomaj n=100000 s=49999,12500,12500,12499,12499
+
+tc med-many-unique n=1000 s=501 times=100
+tc small-many-unique-1 n=100 s=51 times=1000
+tc small-many-unique-2 n=100 s=51 times=1000
+tc med-close-many-00 n=100 s=51,49 times=1000
+tc med-close-many-01 n=100 s=51,49 times=1000
+tc med-close-many-02 n=100 s=51,49 times=1000
+tc med-close-many-03 n=100 s=51,49 times=1000
+tc med-close-many-04 n=100 s=51,49 times=1000
+tc med-close-many-05 n=100 s=51,49 times=1000
+tc med-close-many-06 n=1000 s=501,499 times=100
+tc med-close-many-07 n=1000 s=501,499 times=100
+tc med-close-many-08 n=1000 s=501,499 times=100
+tc med-close-many-09 n=10000 s=5001,4999 times=10
+tc med-close-many-10 n=10000 s=5001,4999 times=10
+tc big-twoway-many-1 n=100000 s=50001,49999
+tc big-twoway-many-2 n=100000 s=50001,49999

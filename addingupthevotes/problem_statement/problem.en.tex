@@ -16,7 +16,9 @@ Your score for the problem depends on how many times you use the processor (see 
 
 \section*{Interactivity}
 This problem is interactive; you will communicate with the grader through reading from standard in and writing to standard out.
-First, the grader will write a single line containing the integer $N$ ($1 \le N \le 100\,000$), the number of citizens that participated in the election.
+First, the grader will write a single line containing the integer $T$ ($1 \le T \le 100$), the number of times your program should count votes.
+
+At the start of each vote counting, the grader will write a single line containing the integer $N$ ($1 \le N \le 100\,000$), the number of citizens that participated in the election.
 
 Next, you may use the super-parallel processor a number of times.
 For each use, output a single line \texttt{? a\_1 a\_2 ... a\_N} where $a_1, \dots, a_N$ are integers between $1$ and $N$.
@@ -26,7 +28,10 @@ The $i$'th of these is $1$ if $c_i = c_{a_i}$ and $0$ otherwise.
 Finally, you must output a single line of the form \texttt{! X} where $X$ is such that candidate $c_X$ received strictly more than half of the votes, i.e. $c_X = c_i$ for strictly more than half of all $1 \le i \le N$.
 If no such $X$ exists, you should instead output \texttt{! -1}.
 
-After this, your program must immediately exit.
+After this, your program should continue with the next vote counting.
+If this was the $T$'th vote count, your program must instead immediately exit.
+
+The sum of all $N$ over all test cases will not exceed $100\,000$.
 
 \section*{Scoring}
 Your solution will be tested on a set of test cases.

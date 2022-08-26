@@ -66,7 +66,7 @@ int main() {
 	cin.tie(0)->sync_with_stdio(0);
 	cin.exceptions(cin.failbit);
     
-    int TC = 1;
+    int TC = 0;
     if (!TC) cin >> TC;
     rep(i,1,TC+1) {
         // cout << i << " ";
