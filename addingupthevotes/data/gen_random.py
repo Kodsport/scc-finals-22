@@ -14,21 +14,38 @@ def cmdlinearg(name, default=None):
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 mode = cmdlinearg('mode', '')
 times = cmdlinearg('times', 1)
-n = int(float(cmdlinearg('n', 1)))
-if times == "MAX": times = 100000 // n
+n = int(cmdlinearg('n'))
+minn = n
+maxn = int(cmdlinearg('maxn', n))
+sstr = cmdlinearg('s')
+order = cmdlinearg('order', '')
+if times == "MAX": times = min(100000 // n, 10000)
 else: times = int(times)
 
-print(times)
+cases = []
+sumn = 0
 for _ in range(times):
 
-    if mode == 'fixed':
-        out = list(map(int, cmdlinearg('s').split(',')))
-        print(len(out))
-        print(*out)
-        exit()
-
-    s = list(map(int, map(float, cmdlinearg('s').split(','))))
-    order = cmdlinearg('order', '')
+    n = random.randint(minn, maxn)
+    if sstr == 'close':
+        s = [(n+1)//2, n//2]
+        if n % 2 == 0:
+            s[0] += 1
+            s[1] -= 1
+        if random.random() < 0.2 and times > 1:
+            s[0] -= 1
+    elif sstr == 'onebig':
+        s = [(n+1)//2]
+        if random.random() < 0.2 and times > 1:
+            s[0] -= 1
+    elif sstr == 'rand':
+        s = []
+        nrem = n
+        while nrem > 0:
+            s.append(random.randint(1, nrem))
+            nrem -= s[-1]
+    else:
+        s = list(map(int, sstr.split(',')))
 
     res = []
     ind = 1
@@ -63,5 +80,12 @@ for _ in range(times):
                 res[r], res[i] = res[i], res[r]
     else:
         assert False, "bad order"
+    if sumn + n > 10**5:
+        break
+    sumn += n
+    cases.append((n, res))
+
+print(len(cases))
+for (n, res) in cases:
     print(n)
     print(*res)
