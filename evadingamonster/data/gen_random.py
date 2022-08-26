@@ -17,6 +17,8 @@ def gen_tree(n, mode):
                 pred = random.randrange(i)
             elif mode == 'star':
                 pred = 0
+            elif mode == 'almoststar':
+                pred = i-1 if i % 2 == 0 and i < 20 else 0
             elif mode == 'line':
                 pred = i-1
             elif mode == 'twostar':
@@ -57,6 +59,7 @@ def gen_walk(start, num_steps):
     elif walk_mode == 'tour':
         sys.setrecursionlimit(10**6)
         chaos = int(cmdlinearg('chaos'))
+        skips = int(cmdlinearg('skips', 0))
         while len(walk) < num_steps:
             chaos_per_node = random_partition(chaos, n)
             def do_chaos(at, num_steps):
@@ -68,6 +71,8 @@ def gen_walk(start, num_steps):
                 for x in rev[::-1]:
                     walk.append(x)
             def dfs(at, par):
+                if skips and at < 20 and at % 2 == 0 and random.random() < 0.2:
+                    return
                 ch1, ch2 = chaos_per_node[at], 0
                 if random.choice([True, False]):
                     ch1, ch2 = ch2, ch1
