@@ -1,4 +1,5 @@
 from common import *
+import math
 
 n = int(cmdlinearg('n'))
 m = int(cmdlinearg('m'))
@@ -8,7 +9,6 @@ max_deg = int(cmdlinearg('deg', n))
 
 def gen_tree(n, mode):
     eds = []
-    assert mode in ['random', 'star', 'line', 'shallow', 'deep', 'deeper', 'degtwo']
     depth = [0]
     adj = [[] for _ in range(n)]
     for i in range(1, n):
@@ -19,8 +19,12 @@ def gen_tree(n, mode):
                 pred = 0
             elif mode == 'line':
                 pred = i-1
+            elif mode == 'twostar':
+                pred = 0 if i == 1 else random.randrange(2)
             elif mode == 'shallow':
                 pred = int(random.uniform(0, i**0.2) ** 5)
+            elif mode == 'shallower':
+                pred = int(2**random.uniform(-2, math.log2(i)))
             elif mode == 'deep':
                 pred = i-1 - int(random.uniform(0, i**0.1) ** 10)
             elif mode == 'deeper':
@@ -30,7 +34,7 @@ def gen_tree(n, mode):
                     hi = math.log2(math.log2(i))
                     pred = i - int(2 ** 2 ** min(random.uniform(-3, hi), random.uniform(-3, hi), random.uniform(-3, hi)))
             else:
-                assert False
+                assert False, f"unknown mode {mode}"
             assert 0 <= pred < i
             if len(adj[pred]) != max_deg:
                 break
@@ -44,18 +48,51 @@ def gen_tree(n, mode):
 eds, adj = gen_tree(n, mode)
 
 def gen_walk(start, num_steps):
-    ret = []
+    walk = []
     if walk_mode == 'drunk':
         at = start
         for i in range(num_steps):
             at = random.choice(adj[at])
-            ret.append(at)
+            walk.append(at)
+    elif walk_mode == 'tour':
+        sys.setrecursionlimit(10**6)
+        chaos = int(cmdlinearg('chaos'))
+        while len(walk) < num_steps:
+            chaos_per_node = random_partition(chaos, n)
+            def do_chaos(at, num_steps):
+                rev = []
+                for i in range(num_steps):
+                    rev.append(at)
+                    at = random.choice(adj[at])
+                    walk.append(at)
+                for x in rev[::-1]:
+                    walk.append(x)
+            def dfs(at, par):
+                ch1, ch2 = chaos_per_node[at], 0
+                if random.choice([True, False]):
+                    ch1, ch2 = ch2, ch1
+                if par != -1:
+                    walk.append(at)
+                do_chaos(at, ch1)
+                chs = adj[at][::]
+                random.shuffle(chs)
+                for ch in chs:
+                    if ch != par:
+                        dfs(ch, at)
+                if par != -1:
+                    walk.append(par)
+                    do_chaos(par, ch2)
+                else:
+                    do_chaos(at, ch2)
+            dfs(start, -1)
+        walk = walk[:num_steps]
     else:
         assert False, f"bad mode {walk_mode}"
-    return ret
+    return walk
 
+monster_start = int(cmdlinearg('monsterstart', -1))
 while True:
-    a = random.randrange(n)
+    a = random.randrange(n) if monster_start == -1 else monster_start
     b = random.randrange(n)
     if a != b:
         break

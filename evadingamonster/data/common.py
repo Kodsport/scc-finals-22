@@ -6,11 +6,18 @@ def cmdlinearg(name, default=None):
         if arg.startswith(name + "="):
             return arg.split("=")[1]
     if default is None:
-        print("missing parameter", name)
+        print("missing parameter", name, file=sys.stderr)
         sys.exit(1)
     return default
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
+
+def random_partition(n, k):
+    marked = [-1] + sorted(random.sample(range(n + k - 1), k - 1)) + [n + k - 1]
+    ret = [b - a - 1 for a, b in zip(marked, marked[1:])]
+    assert len(ret) == k
+    assert sum(ret) == n
+    return ret
 
 def print_output(n, m, eds, walk, a, b):
     assert a != b
