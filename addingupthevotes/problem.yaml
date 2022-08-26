@@ -3,3 +3,5 @@ source: Swedish Coding Cup Finals 2022
 license: cc by-sa
 type: scoring
 validation: custom score interactive
+limits:
+  time_multiplier: 2.5
