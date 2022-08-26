@@ -1,7 +1,7 @@
 #include "validator.h"
 
 void run() {
-    int T = Int(1, 100'000);
+    int T = Int(1, 100'000); Endl();
     long long sumN = 0;
     for (int i = 0; i < T; i++) {
         int N = Int(1, 100'000);

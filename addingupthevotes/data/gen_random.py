@@ -13,7 +13,10 @@ def cmdlinearg(name, default=None):
 
 random.seed(int(cmdlinearg('seed', sys.argv[-1])))
 mode = cmdlinearg('mode', '')
-times = int(cmdlinearg('times', 1))
+times = cmdlinearg('times', 1)
+n = int(float(cmdlinearg('n', 1)))
+if times == "MAX": times = 100000 // n
+else: times = int(times)
 
 print(times)
 for _ in range(times):
@@ -24,7 +27,6 @@ for _ in range(times):
         print(*out)
         exit()
 
-    n = int(float(cmdlinearg('n')))
     s = list(map(int, map(float, cmdlinearg('s').split(','))))
     order = cmdlinearg('order', '')
 

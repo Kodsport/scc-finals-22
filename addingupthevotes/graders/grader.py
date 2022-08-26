@@ -20,11 +20,11 @@ try:
         if sample:
             score = 0
         elif max_queries <= 3:
-            score = 100
+            score = 115
         elif max_queries == 4:
-            score = 85
+            score = 100
         elif max_queries == 5:
-            score = 70
+            score = 80
         elif max_queries <= 9:
             score = 40 + (9 - max_queries) * 7
         elif max_queries <= 18:
