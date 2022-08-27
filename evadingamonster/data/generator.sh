@@ -66,3 +66,4 @@ tc large-smalln-rand-tour gen_random n=1000 m=500000 mode=random walk=tour chaos
 tc large-smallstar gen_random n=500 m=500000 mode=star walk=tour chaos=100
 tc large-smallalmoststar gen_random n=500 m=500000 mode=almoststar walk=tour chaos=100
 tc large-smallalmoststarsomeskips gen_random n=500 m=500000 mode=almoststar walk=tour chaos=100 skips=1
+tc large-twostar-alternate gen_random n=100000 m=500000 mode=twostar walk=twostarrand

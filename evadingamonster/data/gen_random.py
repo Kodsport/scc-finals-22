@@ -56,6 +56,15 @@ def gen_walk(start, num_steps):
         for i in range(num_steps):
             at = random.choice(adj[at])
             walk.append(at)
+    elif walk_mode == 'twostarrand':
+        # alternate between stars rapidly
+        at = start
+        for i in range(num_steps):
+            if at < 2 and random.random() < 0.5:
+                at ^= 1
+            else:
+                at = random.choice(adj[at])
+            walk.append(at)
     elif walk_mode == 'tour':
         sys.setrecursionlimit(10**6)
         chaos = int(cmdlinearg('chaos'))
